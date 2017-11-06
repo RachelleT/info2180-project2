@@ -28,7 +28,7 @@ function main(){
 			puzzlePiece[i].setAttribute("id", "square" + "_" + 0 + "_" + 0);
 			puzzlePiece[i].innerHTML = count++;
 			puzzlePiece[i].onmouseover = changecolor;
-			puzzlePiece[i].onmouseout = defaultcolor;
+			//puzzlePiece[i].onmouseout = defaultcolor;
 			puzzlePiece[i].onclick = puzzle;
 			continue;
 		}
@@ -40,7 +40,7 @@ function main(){
 		puzzlePiece[i].setAttribute("id", "square" + "_" + 0 + "_" + y);
 		puzzlePiece[i].innerHTML = count++;
 		puzzlePiece[i].onmouseover = changecolor;
-		puzzlePiece[i].onmouseout = defaultcolor;
+		//puzzlePiece[i].onmouseout = defaultcolor;
 		puzzlePiece[i].onclick = puzzle;
 		}
 
@@ -60,7 +60,7 @@ function main(){
 			puzzlePiece[i].setAttribute("id", "square" + "_" + 1 + "_" + 0);
 			puzzlePiece[i].innerHTML = count++;
 			puzzlePiece[i].onmouseover = changecolor;
-			puzzlePiece[i].onmouseout = defaultcolor;
+			//puzzlePiece[i].onmouseout = defaultcolor;
 			puzzlePiece[i].onclick = puzzle;	
 			continue;
 		}
@@ -73,7 +73,7 @@ function main(){
 		puzzlePiece[i].setAttribute("id", "square" + "_" + 1 + "_" + y);
 		puzzlePiece[i].innerHTML = count++;
 		puzzlePiece[i].onmouseover = changecolor;
-		puzzlePiece[i].onmouseout = defaultcolor;
+		//puzzlePiece[i].onmouseout = defaultcolor;
 		puzzlePiece[i].onclick = puzzle;
 	}
 
@@ -93,7 +93,7 @@ function main(){
 			puzzlePiece[i].setAttribute("id", "square" + "_" + 2 + "_" + 0);
 			puzzlePiece[i].innerHTML = count++;
 			puzzlePiece[i].onmouseover = changecolor;
-			puzzlePiece[i].onmouseout = defaultcolor;
+			//puzzlePiece[i].onmouseout = defaultcolor;
 			puzzlePiece[i].onclick = puzzle;
 			continue;
 		}
@@ -106,7 +106,7 @@ function main(){
 		puzzlePiece[i].setAttribute("id", "square" + "_" + 2 + "_" + y);
 		puzzlePiece[i].innerHTML = count++;
 		puzzlePiece[i].onmouseover = changecolor;
-		puzzlePiece[i].onmouseout = defaultcolor;
+		//puzzlePiece[i].onmouseout = defaultcolor;
 		puzzlePiece[i].onclick = puzzle;
 	}
 
@@ -126,7 +126,7 @@ function main(){
 			puzzlePiece[i].setAttribute("id", "square" + "_" + 3 + "_" + 0);
 			puzzlePiece[i].innerHTML = count++;
 			puzzlePiece[i].onmouseover = changecolor;
-			puzzlePiece[i].onmouseout = defaultcolor;
+			//puzzlePiece[i].onmouseout = defaultcolor;
 			puzzlePiece[i].onclick = puzzle;
 			continue;
 		}
@@ -139,7 +139,7 @@ function main(){
 		puzzlePiece[i].setAttribute("id", "square" + "_" + 3 + "_" + y);
 		puzzlePiece[i].innerHTML = count++;
 		puzzlePiece[i].onmouseover = changecolor;
-		puzzlePiece[i].onmouseout = defaultcolor;
+		//puzzlePiece[i].onmouseout = defaultcolor;
 		puzzlePiece[i].onclick = puzzle;
 	}
 	
@@ -156,24 +156,24 @@ function main(){
 	}
 
 	function changecolor() {
-    if (validMove(this)) {
-      this.setAttribute("class", "movablepiece");
-    }
-  }
+		if (validMove(this)) {
+			this.setAttribute("class", "movablepiece");
+		}
+	}
   
-  //Unhighlights the moveable, selected tile upon removal of the mouse
-	function defaultcolor() {
+//change color
+	/*function defaultcolor() {
 		if (validMove(this)) {
 			this.removeAttribute("class", "movablepiece");
 		}
-	}
+	}*/
 
-  // Helper function to pass clicked tile to moveTiles
+ 
 	function puzzle(){
 		movePuzzles(this);
 	}
 
-  // Swaps the selected tile if it's moveable with the empty tile
+//move puzzles
 	function movePuzzles(tile) {
 		var tempEX = x;
 		var tempEY = y;
@@ -186,7 +186,7 @@ function main(){
 		}
 	}
 
-  // Shuffles the puzzle and places tiles randomly  
+//shuffle puzzles
 	function shuffle() {
 		console.log("test");
 		for (var i = 0; i < 1000; i++) {
@@ -197,7 +197,7 @@ function main(){
 		}
 	}
 
-  // Checks tiles around selected tile to see if they're empty 
+ 
 	function getNeighbors() {
 		y = 3;
 		x = 3;
