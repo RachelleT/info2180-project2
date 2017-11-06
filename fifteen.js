@@ -211,8 +211,7 @@ window.onload = function () {
 		}
 		
 		function youWin(){
-			let body = document.getElementsByTagName('body');
-			body[0].style.backgroundImage = " info2180-project2/YouWon.jpg ";
+			puzzlePiece.backgroundImage = " info2180-project2/YouWon.jpg ";
 		}
 		
 		/*function shuffle() {   
