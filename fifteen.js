@@ -171,13 +171,8 @@ window.onload = function () {
 			}
 		}
 		
-		function shuffle(){
-			console.log("test");
-		}
-		
 		function puzzleComplete(){
 			if ((parseInt(puzzlePiece[0].getAttribute("row")) == 1) && (parseInt(puzzlePiece[0].getAttribute("column"))) == 1){
-				console.log("test");
 				if ((parseInt(puzzlePiece[1].getAttribute("row")) == 1) && (parseInt(puzzlePiece[1].getAttribute("column"))) == 2){
 					if ((parseInt(puzzlePiece[2].getAttribute("row")) == 1) && (parseInt(puzzlePiece[2].getAttribute("column"))) == 3){
 						if ((parseInt(puzzlePiece[3].getAttribute("row")) == 1) && (parseInt(puzzlePiece[3].getAttribute("column"))) == 4){
@@ -211,40 +206,38 @@ window.onload = function () {
 		}
 		
 		function youWin(){
-			for (let i = 0; i < puzzlePiece.length; i++) {
-				puzzlePiece[i].style.backgroundImage = " info2180-project2/YouWon.jpg ";
-			}
+			let puzzleSpace = document.getElementById('puzzlearea');
+			puzzleSpace.style.backgroundImage = "url('YouWon.jpg')";
 		}
 		
-		/*function shuffle() {   
-			for (let i = 0; i < 1000; i++) {
-				var neighbors = getNeighbors();
-				var rand = parseInt(Math.random() * neighbors.length);
-				var puzzle = document.getElementById(neighbors[rand]);
-				movePuzzle();
-			}
-		}
-		
-		function getNeighbors() {
-			for (let i = 0; i < puzzlePiece.length; i++) {
-				let row = parseInt(puzzlePiece[i].getAttribute("row"));
-				let column = parseInt(puzzlePiece[i].getAttribute("column"));
-				var up = "square_" + row + "_" + (column - 1);
-				var down = "square_" + row + "_" + (column + 1);
-				var left = "square_" + (row - 1) + "_" + column;
-				var right = "square_" + (row + 1) + "_" + column;
-
-				var tiles = [up, down, left, right];
-				var realTiles = [];
-
-				for (let p = 0; p < tiles.length; p++) {
-					if (document.getElementById(tiles[p]) != null) {
-						realTiles.push(tiles[p]);
+		function shuffle(){
+			let temp = [];
+			let movablepuzzle = [];
+			let newi = 0;
+			let row = 0;
+			let column = 0;
+			for (let times = 0; times < 400; times++) {
+				for (let i = 0; i < puzzlePiece.length; i++) {
+					row = parseInt(puzzlePiece[i].getAttribute("row"));
+					column = parseInt(puzzlePiece[i].getAttribute("column"));
+					if (((row - 1) === emptySpace[0] && column === emptySpace[1]) || ((row + 1) === emptySpace[0] && column === emptySpace[1]) ||
+					(row === emptySpace[0] && (column - 1) === emptySpace[1]) || (row === emptySpace[0] && (column + 1) === emptySpace[1]))
+					{
+						movablepuzzle.push(puzzlePiece[i]);
 					}
 				}
-				return realTiles;
+				newi = Math.floor(Math.random() * movablepuzzle.length);
+				temp[0] = emptySpace[0];
+				temp[1] = emptySpace[1];
+				emptySpace[0] = parseInt(movablepuzzle[newi].getAttribute("row"));
+				emptySpace[1] = parseInt(movablepuzzle[newi].getAttribute("column"));
+				movablepuzzle[newi].setAttribute("id", "square_" + temp[0] + "_" + temp[1]);
+				movablepuzzle[newi].setAttribute("row", temp[0]);
+				movablepuzzle[newi].setAttribute("column", temp[1]);
+				movablepuzzle[newi].style.top = ((temp[0] - 1) * 100) + "px";
+				movablepuzzle[newi].style.left =  ((temp[1] - 1) * 100) + "px";
 			}
-		}*/
+		}
 		
 		setPuzzle();
 		addEvent();
