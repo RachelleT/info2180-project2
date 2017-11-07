@@ -5,6 +5,7 @@ window.onload = function () {
 		var puzzlePiece = document.getElementById('puzzlearea').children;
 		let emptySpace = [4,4];
 	
+		//sets up the game
 		function setPuzzle(){
 			let positionx = 0;
 			let positiony = 0;
@@ -127,6 +128,7 @@ window.onload = function () {
 			}
 		}
 	
+		//adds events to the puzzles
 		function addEvent() {
 			for (let i = 0; i < puzzlePiece.length; i++) {
 				puzzlePiece[i].onmouseover = changeColor;
@@ -137,6 +139,7 @@ window.onload = function () {
 		}
 
 	
+		//moves a puzzle
 		function movePuzzle() {
 			let temp = [];
 			let row = parseInt(this.getAttribute("row"));
@@ -156,6 +159,7 @@ window.onload = function () {
 			puzzleComplete();
 		}
 	
+		//add highlight if a puzzle is a movable puzzle and the mouse is hovering over it
 		function changeColor(){
 			let row = parseInt(this.getAttribute("row"));
 			let column = parseInt(this.getAttribute("column"));
@@ -165,12 +169,14 @@ window.onload = function () {
 			}
 		}	
 	
+		//removes highlight if a puzzle is a movable puzzle but the mouse is not hovering over it
 		function removeColor(){
 			if (this.className.includes("movablepiece")) {
 				this.classList.remove("movablepiece");
 			}
 		}
 		
+		//checks if player completed the game
 		function puzzleComplete(){
 			if ((parseInt(puzzlePiece[0].getAttribute("row")) == 1) && (parseInt(puzzlePiece[0].getAttribute("column"))) == 1){
 				if ((parseInt(puzzlePiece[1].getAttribute("row")) == 1) && (parseInt(puzzlePiece[1].getAttribute("column"))) == 2){
@@ -205,13 +211,13 @@ window.onload = function () {
 			}
 		}
 		
+		//changes background color if player wins
 		function youWin(){
-			let puzzleSpace = document.getElementById('puzzlearea');
-			puzzleSpace.style.background = "none";
-			puzzleSpace.style.zIndex = 999;
-			puzzleSpace.style.backgroundImage = "url('YouWon.jpg')";
+			var body = document.getElementsByTagName('body');
+			body[0].style.backgroundColor = "yellow";
 		}
 		
+		//shuffles puzzles
 		function shuffle(){
 			let temp = [];
 			let movablepuzzle = [];
