@@ -211,7 +211,7 @@ window.onload = function () {
 		}
 		
 		function youWin(){
-			for (let i = 0; i < puzzlePieces.length; i++) {
+			for (let i = 0; i < puzzlePiece.length; i++) {
 				puzzlePiece[i].style.backgroundImage = " info2180-project2/YouWon.jpg ";
 			}
 		}
