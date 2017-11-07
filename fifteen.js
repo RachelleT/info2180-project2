@@ -207,6 +207,7 @@ window.onload = function () {
 		
 		function youWin(){
 			let puzzleSpace = document.getElementById('puzzlearea');
+			puzzleSpace.style.background = none;
 			puzzleSpace.style.zIndex = 999;
 			puzzleSpace.style.backgroundImage = "url('YouWon.jpg')";
 		}
